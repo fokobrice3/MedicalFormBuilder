@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+	<link rel="stylesheet" href="css/animate.css" > 
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/main.css" > 
+	<link rel="icon" href="img/ico.ico" />		
+	<title>Medical Form Builder : TP INF4188</title>
+</head>
+<body class="bg02">
+	<div class="container py-4 main">
+		<br/>
+	   	<header class="pb-3 mb-4 border-bottom">
+		  	<div class="row">
+				<div class="col-md-6 head">
+					<img src="img/ico.png" class="ico" alt="ico"/> 
+					<a href="index.html" class="d-flex align-items-center text-dark text-decoration-none">
+						<span class="title">Medical Form Builder</span>
+					</a>
+			 	</div>
+			 	<div class="col-md-6"></div>
+		 	</div>
+	   	</header>
+	   	<div class="mt-3 mb-3"></div>
+		<div class="container-fluid py-5">
+			<img src="img/logo.png" class="logo" alt="logo"/> 
+			<p class="desc">Cette application est réalisé pour l'unité d'enseignement INF4188 : Dévoloppement web sémantique. <br/> Le Tp consiste à développer une plateforme de Web sémantique pour la modélisation et la génération de logiciels de santé.
+L'objectif principal de cet exercice est de renforcer les capacités des étudiants dans le développement d'applications Web sémantiques. A cette fin, nous avons développé une ontologie depuis <b>Protégé</b> et nous l'avons chargé dans <b>GraphDB</b>. Cette ontologie a été ainsi cette présente plateforme de génération automatique de formulaire web spécifique aux logiciels de santé.</p>
+		</div>
+	   	<div class="row align-items-md-stretch">
+		  	<div class="col-md-4">
+			 <div class="h-100 p-5 text-white bg-dark card">
+				<h2 class="text-white">Creer Formulaire</h2>
+				<p></p>
+				<a href="create.html" class="btn btn-outline-light">Construire un formulaire</a> 		
+			 </div>
+		  </div>
+		  <div class="col-md-4">
+			 <div class="h-100 p-5 bg-light border card">
+				<h2>Visualiser</h2>
+				<p></p>
+				<a href="render.html" class="btn btn-outline-green">Voir / Générer l'Apps</a>  
+				<!--<a href="build.html" class="btn btn-outline-green">Générer HTML</a> -->
+			 </div>
+		  </div>
+		  <div class="col-md-4">
+			 <div class="h-100 p-5 bg-light border card">
+				<h2>Manager</h2>
+				<p></p>
+				<a href="edit.html" class="btn btn-outline-primary">Editer</a>
+				<a href="delete.html" class="btn btn-outline-danger">Supprimer</a>
+			 </div>
+		  </div>
+	   </div>
+	   <footer class="pt-3 mt-4 text-muted text-center border-top">
+		  © FOKO BRICE - 2022                
+	   </footer>
+	</div>
+	<!--- Custom Alert -->
+	<script src="js/myCustomAlertBox.js"></script>
+	<!-- jQuery -->
+	<script src="js/jquery-3.3.1.js"></script> 
+	<!-- Bootsrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$("#testBTN").click(function(e) { 
+			e.preventDefault(); 
+			$.post( "/request", { name: "John", time: "2pm" })
+				.done(function( data ) {
+					alert( "Data Loaded: " + data );
+				});
+		}); 
+	</script>
+</body>
+</html>

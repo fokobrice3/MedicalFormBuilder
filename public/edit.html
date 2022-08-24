@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+	<link rel="stylesheet" href="css/animate.css" > 
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/main.css" > 
+	<link rel="icon" href="img/ico.ico" />	
+	<title>Update Medical Form</title>
+	<style> 
+	</style>
+</head>
+<body class="bg03">
+	<div class="container py-4 create edit">
+		<br/>
+		<header class="pb-3 mb-4 border-bottom">
+		  	<div class="row">
+				<div class="col-md-6 head">
+					<img src="img/ico.png" class="ico" alt="ico"/> 
+					<a href="index.html" class="d-flex align-items-center text-dark text-decoration-none">
+						<span class="title">Medical Form Builder</span>
+					</a>
+			 	</div>
+			 	<div class="col-md-6 right-header">
+				 	<a href="index.html" class="btn btn-previous">Précédant</a>
+				</div>
+		 	</div>
+	   	</header>
+		   <a style="display:none"; href="index.html" id="indx">back to index</a>
+		<h2>Modification d'un formulaire</h2>
+		<p class="text-muted">Sélectionnez le formulaire et cliquez sur charger afin de le modifier<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="padding:5px 20px;background:#f2a130;position:relative;top:10px;border-radius:10px;color:#171717;font-weight:300;"><span id="nbFormAvaible" style="font-weight:900;color:#ff4400;text-shadow: #b10300 0 1px 0;"></span> <em>Formulaire(s) disponible(s)</em></span> </p>
+		<br> 
+		<div class="row" style="padding:0 10px;">
+			<div class="col-md-12 footer-left">	
+				<select id="FormList" name="FormList" style="margin-right:10px;width: 70%;max-width: 700px;"  onchange="document.getElementById('mfb_see').click()"> 
+				</select>				
+				<button id="mfb_see" name="mfb_see" class="s-btn s-btn_primary">Charger</button>  
+				<button id="mfb_render2" class="btn btn-default" style="margin:0 5px">Générer l'Apps</button>
+				<button id="mfb_edit" class="s-btn s-btn_orange">Sauvegarder</button> 
+			</div> 
+		</div>
+		<hr /> 
+		<div class="container wrap_form">
+			<h2 id="formUri">Form uri : </h2> 
+			<div class="form-groupPrim" >
+				<label for="email">Nom du formulaire <b style='color:red'>*</b></label>
+				<input type="text" placeholder="Entrez le nom du formulaire" name="title" id="mfb_title" class="form-control" required="true"/>
+			</div>
+			<div class="form-groupPrim">
+				<label for="email">Description <b style='color:red'>*</b></label>
+				<textarea style="width:100%%;min-height:120px;resize: vertical;" placeholder="Entrez une description" name="description" id="mfb_description" class="form-control" required="true"></textarea>
+			</div>
+			<br/>
+			<div id="build-wrap" style="visibility:hidden;" ></div>  
+			<hr/>
+		</div> 	
+		<div class="fb-render" style="display:none;">
+			<textarea id="fb-template" style="display:none;margin:auto;max-width: 1280px">
+			</textarea> 
+		</div>
+	   	<footer class="pt-3 mt-4 text-muted text-center border-top">© FOKO BRICE - 2022</footer>
+	</div>  	
+	<!--- AES Encryption/DECRYPTION -->
+	<script src="js/aes.js"></script>
+	<!--- Custom Alert -->
+	<script src="js/myCustomAlertBox.js"></script>
+	<!-- JSZip -->
+	<script src="js/jszip.js"></script>
+	<!-- FileSaver -->
+	<script src="js/FileSaver.js"></script>
+	<!-- jQuery -->
+	<script src="js/jquery-3.3.1.js"></script>
+	<!-- Bootsrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Core -->
+	<script src="js/form-builder.min.js"></script>
+	<!-- Render form templates created with formBuilder -->
+	<script src="js/form-render.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<!---  Generateur Package JS -->
+	<script src="js/GenerateAppsRessourceEncoded.js"></script>
+	<script> 		
+		const btnSee = document.getElementById("mfb_see");
+		const btnEdit = document.getElementById("mfb_edit");
+		var fbEditor = document.getElementById("build-wrap"); 
+		var formBuilder = $(fbEditor).formBuilder({
+			actionButtons: [], 
+			allowStageSort: true,
+			append: false, 
+			prepend: false,
+			controlOrder: [
+				'text',
+				'date',  
+				'number',
+				'checkbox-group',
+				'select',
+				'radio-group',
+				'autocomplete',
+				'textarea',
+				'button',
+				'header',
+				'paragraph', 
+			],
+			controlPosition: 'left',
+			dataType: 'json',
+			disabledActionButtons: ['save','clear','data'], 
+			disabledAttrs: ['access','className'],
+			disabledSubtypes: {
+				text: ['tel'], 
+			}, 
+			disableFields: ['date','file','hidden','autocomplete'],
+			disableHTMLLabels: false, 
+			disableInjectedStyle: false, 
+			editOnAdd: true, 
+			fields: [], 
+			fieldRemoveWarn: false,
+			fieldEditContainer: null, 
+			inputSets: [], 
+			persistDefaultFields: false,
+			onAddField: (fieldData, fieldId) => fieldData,  			
+			replaceFields: [],
+			roles: {},
+			scrollToFieldOnAdd: true,
+			showActionButtons: true,
+			sortableControls: false,
+			stickyControls: {
+				enable: true,
+				offset: {
+				  top: 5,
+				  bottom: 'auto',
+				  right: 'auto',
+				},
+			},
+			subtypes: {
+				text: ['datetime-local','date']
+			}, 
+		});
+		var html="";
+		var n=0;			
+		function getSecondPart(str) {
+    		return str.split('#')[1];
+		} 
+		function UpdateDB(){
+			document.getElementById("indx").click(); 
+		}
+		btnSee.addEventListener("click", function(e) { 
+			var curr_json_data = JSON.parse($("#FormList").find('option:selected').attr('data-json')); 			
+			console.log(curr_json_data); 
+			$(".wrap_form").css("display", "block");
+			$("#build-wrap").css("display", "block");
+			$("#build-wrap").css("visibility", "visible");    
+			$("#formUri").html("<u>Form uri</u> : "+ $("#FormList").find('option:selected').attr('value'));
+			$("#mfb_title").val($("#FormList").find('option:selected').text());
+			$("#mfb_description").val($("#FormList").find('option:selected').attr('data-desc')); 
+  			formBuilder.actions.setData(curr_json_data); 
+			$('.fb-render').formRender({
+				dataType: 'json',
+				formData: JSON.parse($("#FormList").find('option:selected').attr('data-json'))
+				});
+			html = $('.fb-render').formRender('html'); 
+		});	    
+		$('#mfb_render2').click(function(){	 
+			if(html==""){
+				$("#alertBox h1").css("background-color", "#f97352");	
+				$("#alertBox h1").css("border-color", "#f97352");	
+				$("#alertBox #closeBtn").css("background-color", "#f97352");
+				alert("<span style='color:#3c4d55;'>Charger d'abord un formulaire</span>");
+			}else{
+				var mfb_title = $("#FormList").find('option:selected').text(); 
+				var mfb_desc = $("#FormList").find('option:selected').attr('data-desc');
+				var HTML_FILE = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta http-equiv='X-UA-Compatible' content='ie=edge'><link rel='stylesheet' href='css/bootstrap.css' /><link rel='stylesheet' href='css/style.css' /><link rel='icon' href='img/ico.png' type='image/png' /><title>"+mfb_title+"</title></head><body><div class='container'><br/><header><div class='row'><div class='col-md-12 head'><img src='img/ico.png' class='ico' alt='ico'/><span class='title'>"+mfb_title+"</span></div></div></header><hr/><div class='color-box break'><div class='shadow'><div class='info-tab tip-icon' title='Useful Tips'><i></i></div><div class='tip-box'><p class='description'><strong>Info:</strong> "+mfb_desc+"</p></div></div></div>"+html+"<br/><footer>Généré par MFB APPS © INF4188 : FOKO BRICE - 2022</footer></div></body></html>";  
+				var zip = new JSZip();
+				var img = zip.folder("img");
+				var css = zip.folder("css");
+				var js = zip.folder("js");
+				var font = zip.folder("font");
+				zip.file("index.html", HTML_FILE); 
+				img.file("ico.png", imgData, {base64: true});
+				img.file("bg.png", imgData2, {base64: true});
+				css.file("bootstrap.css", styleData, {base64: true});
+				css.file("style.css", styleData2, {base64: true});
+				font.file("Montserrat.ttf", fontData, {base64: true}); 
+				zip.generateAsync({type:"blob"}).then(function(content) { 
+					saveAs(content, "MFB Aps.zip");
+				});
+				$("#alertBox h1").css("background-color", "#39ce83");	
+				$("#alertBox h1").css("border-color", "#39ce83");	
+				$("#alertBox #closeBtn").css("background-color", "#39ce83");
+				alert("<span style='color:#3c4d55;'>Application généré</span>");
+			}
+		}); 
+		btnEdit.addEventListener("click", function(e) {//$('#mfb_edit').click(function(){	  
+			if(n>0){				
+				if(formBuilder.actions.getData().length === 0){
+					$("#alertBox h1").css("background-color", "#f97352");	
+					$("#alertBox h1").css("border-color", "#f97352");	
+					$("#alertBox #closeBtn").css("background-color", "#f97352");
+					alert("<span style='color:#3c4d55;'>Charger au moins un éléments dans le formulaire</span>");
+				}else{
+					var uri = $("#FormList").find('option:selected').attr('value');
+					var IndividualName = getSecondPart(uri);
+					if (confirm("Modifier le formulaire possédant l'URI:\n"+uri+"\n Confirmez vous ?") == true) {
+						$.post("/update_form",{
+							uri: uri, 
+							formTitle: document.getElementById("mfb_title").value,
+							formDesc: document.getElementById("mfb_description").value,
+							form_json: JSON.stringify(formBuilder.actions.getData()), 
+						});
+						$("#alertBox h1").css("background-color", "#39ce83");	
+						$("#alertBox h1").css("border-color", "#39ce83");	
+						$("#alertBox #closeBtn").css("background-color", "#39ce83");
+						alert("<span style='color:#3c4d55;'>Formulaire Modifié</span>");
+						setTimeout(UpdateDB, 1000) 
+					} 	
+				}							
+			}else{
+				alert("Aucune modification à faire");
+			}
+		});	
+		$( document ).ready(function() {
+			var _GETTERS = window.location.search.substr(1);
+			var items_GETTERS = location.search.substr(1).split("=");
+			$.post("/get_forms", {})
+				.done(function( data ) {
+					var obj = JSON.parse(data); 
+					n = Object.keys(obj.results.bindings).length, i=0;
+					var $select = $('#FormList');
+					$select.find('option').remove();
+					while(i<n){
+						$select.append('<option data-json=\''+obj.results.bindings[i].json.value +'\' data-desc=\"'+obj.results.bindings[i].formDesc.value +'\" value=' + obj.results.bindings[i].form.value + '>' + obj.results.bindings[i].formTitle.value + '</option>');
+						i++;
+					} 
+					//$select.append('<option data-json="test" data-desc="testest" value="medi">dsqdsq dsq dqs</option>');
+					$("#nbFormAvaible").html(n);			 
+				});	
+			//Automatically loads the formBuilder if the uri has been sent
+			if(items_GETTERS[0]=="uri"){				
+				var decrypted = CryptoJS.AES.decrypt(items_GETTERS[1], "WebBuilderOntologyURI");
+				var decrypted_uri = decrypted.toString(CryptoJS.enc.Utf8); 
+				$.post("/get_a_form",{uri: decrypted_uri})
+					.done(function( data ) {		
+						$('#FormList option[value="'+decrypted_uri+'"]').attr('selected', 'selected'); 
+						document.getElementById("mfb_see").click(); 
+						$('.fb-render').formRender({
+							dataType: 'json',
+							formData: JSON.parse($("#FormList").find('option:selected').attr('data-json'))
+						});
+						html = $('.fb-render').formRender('html'); 
+					}); 
+			}	 
+		});
+		function download(filename, text) {
+			var element = document.createElement('a');
+			element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+			element.setAttribute('download', filename);
+			element.style.display = 'none';
+			document.body.appendChild(element);
+			element.click();
+			document.body.removeChild(element);
+		}		
+	</script>
+</body>
+</html>

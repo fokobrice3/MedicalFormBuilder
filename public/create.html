@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+	<link rel="stylesheet" href="css/animate.css" > 
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/main.css" > 
+	<link rel="icon" href="img/ico.ico" />		
+	<title>Create Medical Form</title>
+	<style>
+	</style>
+</head>
+<body class="bg01">
+	<div class="container py-4 create">
+		<br/>
+		<header class="pb-3 mb-4 border-bottom">
+		  	<div class="row">
+				<div class="col-md-6 head">
+					<img src="img/ico.png" class="ico" alt="ico"/> 
+					<a href="index.html" class="d-flex align-items-center text-dark text-decoration-none">
+						<span class="title">Medical Form Builder</span>
+					</a>
+			 	</div>
+			 	<div class="col-md-6 right-header">
+				 	<a href="index.html" class="btn btn-previous">Précédant</a>
+				</div>
+		 	</div>
+	   	</header>
+		   <a style="display:none"; href="index.html" id="indx">back to index</a>
+		<h2>Creation d'un formulaire</h2>
+		<p class="text-muted">Indiquez le titre et la description de votre formulaire HTML ensuite, servez vous des composants à droite pour créer votre formulaire. Une fois terminer vous pouvez l'enregistrer, le visualiser ou générer le fichier HMTL correspondant.</p>
+		<br>
+		<form action="save" method="POST" enctype="multipart/form-data"> 
+			<div class="form-groupPrim" >
+				<label for="email">Nom du formulaire <b style='color:red'>*</b></label>
+				<input type="text" placeholder="Entrez le nom du formulaire" name="title" id="mfb_title" class="form-control" required="true"/>
+			</div>
+			<div class="form-groupPrim">
+				<label for="email">Description <b style='color:red'>*</b></label>
+				<textarea placeholder="Entrez une description" name="description" id="mfb_description" class="form-control" required="true"></textarea>
+			</div>
+			<br/>
+  			<textarea name="formBuilder" id="formBuilder"></textarea>
+		</form> 
+		<hr />
+		<p class="text-muted">Utilisez les bouttons ci-dessous une fois terminé.</p>
+		<div class="row" style="padding:0 10px;">
+			<div class="col-md-6 footer-left">					
+				<button id="mfb_save" class="s-btn s-btn_primary">Enregistrer</button>
+				<button id="mfb_json" class="btn btn-default" style="margin:0 5px">Voir JSON</button>
+				<!--<button id="mfb_html" class="btn btn-default" style="margin:0 5px">Voir HTML</button>-->
+				<button id="mfb_render" class="btn btn-default" style="margin:0 5px">Générer l'Apps</button>
+			</div>
+			<div class="col-md-6 footer-right">			
+				<button id="mfb_reset" class="s-btn s-btn_orange">Effacer</button> 
+			</div>
+		</div> 
+		<footer class="pt-3 mt-4 text-muted text-center border-top">© FOKO BRICE - 2022</footer>
+	</div>  	
+	<div class="fb-render" style="display:none;">
+		<textarea id="fb-template" style="display:none;margin:auto;max-width: 1280px">
+		</textarea> 
+	</div>
+
+	<!--- Custom Alert -->
+	<script src="js/myCustomAlertBox.js"></script>
+	<!-- JSZip -->
+	<script src="js/jszip.js"></script>
+	<!-- FileSaver -->
+	<script src="js/FileSaver.js"></script>
+	<!-- jQuery -->
+	<script src="js/jquery-3.3.1.js"></script>
+	<!-- Bootsrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Core -->
+	<script src="js/form-builder.min.js"></script>
+	<!-- Render form templates created with formBuilder -->
+	<script src="js/form-render.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<!---  Generateur Package JS -->
+	<script src="js/GenerateAppsRessourceEncoded.js"></script>
+	<script>  
+		var formBuilder = $('#formBuilder').formBuilder({
+			actionButtons: [], 
+			allowStageSort: true,
+			append: false, 
+			prepend: false,
+			controlOrder: [
+				'text',
+				'date',  
+				'number',
+				'checkbox-group',
+				'select',
+				'radio-group',
+				'autocomplete',
+				'textarea',
+				'button',
+				'header',
+				'paragraph', 
+			],
+			controlPosition: 'left',
+			dataType: 'json',
+			disabledActionButtons: ['save','clear','data'], 
+			disabledAttrs: ['access','className'],
+			disabledSubtypes: {
+				text: ['tel'], 
+			}, 
+			disableFields: ['date','file','hidden','autocomplete'],
+			disableHTMLLabels: false, 
+			disableInjectedStyle: false, 
+			editOnAdd: true, 
+			fields: [], 
+			fieldRemoveWarn: false,
+			fieldEditContainer: null, 
+			inputSets: [], 
+			persistDefaultFields: false,
+			onAddField: (fieldData, fieldId) => fieldData,  			
+			replaceFields: [],
+			roles: {},
+			scrollToFieldOnAdd: true,
+			showActionButtons: true,
+			sortableControls: false,
+			stickyControls: {
+				enable: true,
+				offset: {
+				  top: 5,
+				  bottom: 'auto',
+				  right: 'auto',
+				},
+			},
+			subtypes: {
+				text: ['datetime-local','date']
+			},
+		});
+		function UpdateDB(){
+			document.getElementById("indx").click(); 
+		}
+		$('#mfb_save').click(function(){
+			if(document.getElementById("mfb_title").value.replaceAll(' ','')==="" || document.getElementById("mfb_title").value==undefined){
+				alert("<span style='color:#3c4d55;'>Titre manquant : veuillez entrer le titre</span>");
+			}else{
+				if(document.getElementById("mfb_description").value.replaceAll(' ','')==="" || document.getElementById("mfb_description").value==undefined){
+					alert("<span style='color:#3c4d55;'>Description manquante : veuillez entrer la description</span>");
+				}else{	
+					if(formBuilder.actions.getData().length === 0){
+						alert("<span style='color:#3c4d55;'>Insérer au moins un champs dans le formulaire</span>");
+					}else{
+						$.post("/save_form",{
+								formTitle: document.getElementById("mfb_title").value,
+								formDesc: document.getElementById("mfb_description").value,
+								form_json: JSON.stringify(formBuilder.actions.getData())
+						});
+						$("#alertBox h1").css("background-color", "#39ce83");	
+						$("#alertBox h1").css("border-color", "#39ce83");	
+						$("#alertBox #closeBtn").css("background-color", "#39ce83");
+						alert("<span style='color:#3c4d55;'>Formulaire sauvegardé</span>");
+						setTimeout(UpdateDB, 1000) 
+					}
+				}
+			}
+		}); 
+		$('#mfb_json').click(function(){
+			formBuilder.actions.showData()
+    		console.log(formBuilder.actions.getData());
+		}); 
+		/*$('#mfb_html').click(function(){	
+			var mfb_formData = formBuilder.actions.getData();			
+			var fbTemplate = document.getElementById('fb-template');
+			$('.fb-render').formRender({
+				dataType: 'json',
+				formData: mfb_formData
+			});
+			const html = $('.fb-render').formRender('html'); 
+    		console.log(html);
+		});*/
+		$('#mfb_render').click(function(){		
+			if(document.getElementById("mfb_title").value.replaceAll(' ','')==="" || document.getElementById("mfb_title").value==undefined){
+				alert("<span style='color:#3c4d55;'>Titre manquant : veuillez entrer le titre</span>");
+			}else{
+				if(document.getElementById("mfb_description").value.replaceAll(' ','')==="" || document.getElementById("mfb_description").value==undefined){
+					alert("<span style='color:#3c4d55;'>Description manquante : veuillez entrer la description</span>");
+				}else{					
+			var mfb_formData = formBuilder.actions.getData();			
+			var fbTemplate = document.getElementById('fb-template');
+			$('.fb-render').formRender({
+				dataType: 'json',
+				formData: mfb_formData
+			});
+			var mfb_html = $('.fb-render').formRender('html'); 
+			var mfb_title = document.getElementById("mfb_title").value; 
+			var mfb_desc = document.getElementById("mfb_description").value;
+			HTML_FILE = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta http-equiv='X-UA-Compatible' content='ie=edge'><link rel='stylesheet' href='css/bootstrap.css' /><link rel='stylesheet' href='css/style.css' /><link rel='icon' href='img/ico.png' type='image/png' /><title>"+mfb_title+"</title></head><body><div class='container'><br/><header><div class='row'><div class='col-md-12 head'><img src='img/ico.png' class='ico' alt='ico'/><span class='title'>"+mfb_title+"</span></div></div></header><hr/><div class='color-box break'><div class='shadow'><div class='info-tab tip-icon' title='Useful Tips'><i></i></div><div class='tip-box'><p class='description'><strong>Info:</strong> "+mfb_desc+"</p></div></div></div>"+mfb_html+"<br/><footer>Généré par MFB APPS © INF4188 : FOKO BRICE - 2022</footer></div></body></html>";  
+			var zip = new JSZip();
+			var img = zip.folder("img");
+			var css = zip.folder("css");
+			var js = zip.folder("js");
+			var font = zip.folder("font");			
+			zip.file("index.html", HTML_FILE); 
+			img.file("ico.png", imgData, {base64: true});
+			img.file("bg.png", imgData2, {base64: true});
+			css.file("bootstrap.css", styleData, {base64: true});
+			css.file("style.css", styleData2, {base64: true});
+			font.file("Montserrat.ttf", fontData, {base64: true}); 
+			zip.generateAsync({type:"blob"}).then(function(content) { 
+				saveAs(content, "MFB Aps.zip");
+			});
+			$("#alertBox h1").css("background-color", "#39ce83");	
+			$("#alertBox h1").css("border-color", "#39ce83");	
+			$("#alertBox #closeBtn").css("background-color", "#39ce83");
+			alert("<span style='color:#3c4d55;'>Application généré</span>");								
+				}				
+			}			
+		});
+		$('#mfb_reset').click(function(){
+			formBuilder.actions.clearFields();
+		}); 
+		function download(filename, text) {
+			var element = document.createElement('a');
+			element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+			element.setAttribute('download', filename);
+			element.style.display = 'none';
+			document.body.appendChild(element);
+			element.click();
+			document.body.removeChild(element);
+		}
+	</script>
+</body>
+</html>

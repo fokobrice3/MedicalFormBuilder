@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+	<link rel="stylesheet" href="css/animate.css" > 
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/main.css" > 
+	<link rel="icon" href="img/ico.ico" />		
+	<title>Build Medical Form</title>
+	
+</head>
+<body class="bg00">
+
+				<button id="mfb_see" name="mfb_see" class="s-btn s-btn_primary">Charger</button>  
+	 <h2>
+  Set Data</h2>
+<select name="formTemplates" id="formTemplates" class="form-control">
+  <option value="test">test</option>
+  <option value="test2">test2</option>
+  <option value="user">User Form </option>
+  <option value="terms">Terms Agreement Form</option>
+  <option value="issue">Submit Issue Form</option>
+</select>
+
+<hr/>
+<div id="build-wrap"></div>
+
+	<!-- JSZip -->
+	<script src="js/jszip.js"></script>
+	<!-- FileSaver -->
+	<script src="js/FileSaver.js"></script>
+	<!-- jQuery -->
+	<script src="js/jquery-3.3.1.js"></script>
+	<!-- Bootsrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Core -->
+	<script src="js/form-builder.min.js"></script>
+	<!-- Render form templates created with formBuilder -->
+	<script src="js/form-render.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script> 
+		 jQuery(function($) {
+  const fbEditor = document.getElementById("build-wrap");
+  const templateSelect = document.getElementById("formTemplates");
+  const btnSee = document.getElementById("mfb_see");
+  const formBuilder = $(fbEditor).formBuilder();
+  var formDataset = '[{"type":"text","label":"Full Name","subtype":"text","className":"form-control","name":"text-1476748004559"},{"type":"select","label":"Occupation","className":"form-control","name":"select-1476748006618","values":[{"label":"Street Sweeper","value":"option-1","selected":true},{"label":"Moth Man","value":"option-2"},{"label":"Chemist","value":"option-3"}]},{"type":"textarea","label":"Short Bio","rows":"5","className":"form-control","name":"textarea-1476748007461"}]';
+  console.log(JSON.parse(formDataset));
+  var y = JSON.parse(formDataset);
+  var x = [
+      {
+        type: "header",
+        subtype: "h2",
+        label: "Terms &amp; Conditions",
+        className: "header"
+      },
+      {
+        type: "paragraph",
+        subtype: "p",
+        label:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in libero quis nibh molestie dapibus. Integer pellentesque massa orci, quis posuere velit fermentum nec. Nullam arcu velit, ornare at urna non, viverra finibus lectus. Curabitur a dui non ipsum maximus faucibus. Quisque a justo purus. Donec volutpat sem vel bibendum pretium. Nulla neque ex, posuere semper urna in, molestie molestie tortor. Maecenas nec arcu sit amet nisl laoreet vestibulum. Cras placerat vulputate maximus. Phasellus ultricies, turpis et efficitur tristique, massa nibh sagittis libero, quis fringilla velit nisl eget augue. Praesent metus nibh, fermentum ut interdum at, lacinia sit amet mauris.",
+        className: "paragraph"
+      },
+      {
+        type: "checkbox",
+        label: "I agree to the terms",
+        className: "checkbox",
+        name: "checkbox-1475766391803"
+      }
+    ];
+//formBuilder.actions.setData();
+  const templates = {
+	test:[
+	{
+		type:"text",
+		label:"Full Name",
+		subtype:"text",
+		className:"form-control",
+		name:"text-1476748004559"
+	},
+	{
+		type:"select",
+		label:"Occupation",
+		className:"form-control",
+		name:"select-1476748006618",
+		values:[
+			{
+				label:"Street Sweeper",
+				value:"option-1",
+				selected:true
+			},
+			{
+				label:"Moth Man",
+				value:"option-2"
+			},
+			{
+				label:"Chemist",
+				value:"option-3"
+			}
+		]
+	},
+	{
+		type:"textarea",
+		label:"Short Bio",
+		rows:"5",
+		className:"form-control",
+		name:"textarea-1476748007461"
+	}
+],	
+	test2: [
+      {
+        type: "text",
+        label: "Name dsq sq s:",
+        subtype: "text",
+        className: "form-control",
+        name: "text-1475765723950"
+      },
+      {
+        type: "text",
+        subtype: "email",
+        label: "Email:",
+        className: "form-control",
+        name: "text-1475765724095"
+      },
+      {
+        type: "text",
+        subtype: "tel",
+        label: "Phone:",
+        className: "form-control",
+        name: "text-1475765724231"
+      },
+      {
+        type: "textarea",
+        label: "Short Bio:",
+        className: "form-control",
+        name: "textarea-1475765724583"
+      }
+    ],
+    user: [
+      {
+        type: "text",
+        label: "Name dsq sq s:",
+        subtype: "text",
+        className: "form-control",
+        name: "text-1475765723950"
+      },
+      {
+        type: "text",
+        subtype: "email",
+        label: "Email:",
+        className: "form-control",
+        name: "text-1475765724095"
+      },
+      {
+        type: "text",
+        subtype: "tel",
+        label: "Phone:",
+        className: "form-control",
+        name: "text-1475765724231"
+      },
+      {
+        type: "textarea",
+        label: "Short Bio:",
+        className: "form-control",
+        name: "textarea-1475765724583"
+      }
+    ],
+    terms: [
+      {
+        type: "header",
+        subtype: "h2",
+        label: "Terms &amp; Conditions",
+        className: "header"
+      },
+      {
+        type: "paragraph",
+        subtype: "p",
+        label:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in libero quis nibh molestie dapibus. Integer pellentesque massa orci, quis posuere velit fermentum nec. Nullam arcu velit, ornare at urna non, viverra finibus lectus. Curabitur a dui non ipsum maximus faucibus. Quisque a justo purus. Donec volutpat sem vel bibendum pretium. Nulla neque ex, posuere semper urna in, molestie molestie tortor. Maecenas nec arcu sit amet nisl laoreet vestibulum. Cras placerat vulputate maximus. Phasellus ultricies, turpis et efficitur tristique, massa nibh sagittis libero, quis fringilla velit nisl eget augue. Praesent metus nibh, fermentum ut interdum at, lacinia sit amet mauris.",
+        className: "paragraph"
+      },
+      {
+        type: "checkbox",
+        label: "I agree to the terms",
+        className: "checkbox",
+        name: "checkbox-1475766391803"
+      }
+    ],
+    issue: [
+      {
+        type: "text",
+        label: "Issue:",
+        subtype: "text",
+        className: "form-control",
+        name: "text-1475766502491"
+      },
+      {
+        type: "text",
+        label: "Platform:",
+        subtype: "text",
+        className: "form-control",
+        name: "text-1475766502680"
+      },
+      {
+        type: "textarea",
+        label: "Steps to Reproduce:",
+        className: "form-control",
+        name: "textarea-1475766579522"
+      },
+      {
+        type: "file",
+        label: "Screenshot:",
+        className: "form-control",
+        name: "file-1475766594420"
+      },
+      {
+        type: "select",
+        label: "Assign Developer:",
+        className: "form-control",
+        name: "select-1475766623703",
+        multiple: true,
+        values: [
+          {
+            label: "Adam",
+            value: "option-1",
+            selected: true
+          },
+          {
+            label: "Adrian",
+            value: "option-2",
+            selected: false
+          },
+          {
+            label: "Alexa",
+            value: "option-3",
+            selected: false
+          },
+          {
+            label: "Amy",
+            value: "",
+            selected: false
+          }
+        ]
+      }
+    ]
+  };
+ 	
+	templateSelect.addEventListener("change", function(e) {
+		//formBuilder.actions.setData(templates[e.target.value]);		
+  		formBuilder.actions.setData(y);
+	});
+	btnSee.addEventListener("click", function(e) {
+		//formBuilder.actions.setData(templates[e.target.value]);		
+  		formBuilder.actions.setData(x);
+	});
+});
+
+	</script>
+</body>
+</html>
