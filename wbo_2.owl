@@ -1,0 +1,1801 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://localhost:8080/WebBuilderOntology#"
+     xml:base="http://localhost:8080/WebBuilderOntology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:WebBuilderOntology="http://localhost:8080/WebBuilderOntology#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://localhost:8080/WebBuilderOntology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#FieldSetLegend -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#FieldSetLegend">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasLegend"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Fieldset"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Legend"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#contains -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#contains">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Component"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#containsField -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#containsField">
+        <owl:equivalentProperty rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#contains"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#containsFieldSet -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#containsFieldSet">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#contains"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Fieldset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#containsFieldforFieldset -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#containsFieldforFieldset">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#contains"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Fieldset"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#formLegend -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#formLegend">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasLegend"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Legend"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasAttributes -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasAttributes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Component"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Attribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasButton -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasButton">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#ButtonInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasCheckboxInput -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasCheckboxInput">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#CheckboxInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasColorInput -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasColorInput">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#ColorInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasCssRule -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasCssRule">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Component"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Declaration"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasDateInput -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasDateInput">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#DateInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasDateTimeInput -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasDateTimeInput">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#DateTimeInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasDescription -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasDescription">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasJson"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Paragraph"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasEmailInput -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasEmailInput">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#EmailInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasEvent -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasEvent">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Component"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasField -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasField">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://localhost:8080/WebBuilderOntology#inForm"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasGroup -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasGroup">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Select"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Optgroup"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasHeader -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasHeader">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Header"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasJson -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasJson"/>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasLegend -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasLegend">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Legend"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasNumberInput -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasNumberInput">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#NumberInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasOption -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasOption">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Select"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasParagraph -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasParagraph">
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Paragraph"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasPasswordInput -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasPasswordInput">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#PasswordInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasRadioInput -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasRadioInput">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#RadioInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasSelectInput -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasSelectInput">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Select"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasTextInput -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasTextInput">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#TextInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#hasTextarea -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#hasTextarea">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasField"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Textarea"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#heading1 -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#heading1">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasHeader"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#H1"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#heading2 -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#heading2">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasHeader"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#H2"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#heading3 -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#heading3">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasHeader"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#H3"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#heading4 -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#heading4">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasHeader"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#H4"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#heading5 -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#heading5">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasHeader"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#H5"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#heading6 -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#heading6">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#hasHeader"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#H6"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#inFieldSet -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#inFieldSet">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Fieldset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#inForm -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#inForm">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Header"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Paragraph"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#inOptGroup -->
+
+    <owl:ObjectProperty rdf:about="http://localhost:8080/WebBuilderOntology#inOptGroup">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+        <rdfs:range rdf:resource="http://localhost:8080/WebBuilderOntology#Optgroup"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#action -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#action">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#background-color -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#background-color">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#border -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#border">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#button -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#button">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#checkbox -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#checkbox">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#className -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#className">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#color -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#color">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#date -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#date">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#display -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#display">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#email -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#email">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#file -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#file">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#font-family -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#font-family">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#font-size -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#font-size">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#font-weight -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#font-weight">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#for -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#for">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#formDesc -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#formDesc">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#formTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#formTitle">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#height -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#height">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#id -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#id">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#image -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#image">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#json_format -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#json_format">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#label -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#label">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#left -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#left">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#line-height -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#line-height">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#list -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#list">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#margin -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#margin">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#margin-bottom -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#margin-bottom">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#margin"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#margin-left -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#margin-left">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#margin"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#margin-right -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#margin-right">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#margin"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#margin-top -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#margin-top">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#margin"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#max -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#max">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#method -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#method">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#min -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#min">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#name -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#name">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#number -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#number">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#padding -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#padding">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#padding-left -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#padding-left">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#padding"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#padding-top -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#padding-top">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#padding"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#paggind-right -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#paggind-right">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#padding"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#pagging-bottom -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#pagging-bottom">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#padding"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#password -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#password">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#position -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#position">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#properties -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#properties">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#radio -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#radio">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#range -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#range">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#required -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#required">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#reset -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#reset">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#right -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#right">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#submit -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#submit">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#subtype -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#subtype">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#text -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#text">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#type"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#text-align -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#text-align">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#top -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#top">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#type -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#type">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#value -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#value">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#width -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/WebBuilderOntology#width">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/WebBuilderOntology#properties"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Action -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Action">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Attribute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Attribute -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Attribute"/>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#ButtonInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#ButtonInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#CheckboxInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#CheckboxInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#ColorInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#ColorInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Component -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Component"/>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Css -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Css">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Datalist -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Datalist">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#DateInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#DateInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#DateTimeInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#DateTimeInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Declaration -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Declaration">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Style"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Document -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Document"/>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#EmailInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#EmailInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Event -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Event"/>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Field -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Field">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Fieldset -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Fieldset">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#FileInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#FileInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Form -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Form">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#H1 -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#H1">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Header"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#H2 -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#H2">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Header"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#H3 -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#H3">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Header"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#H4 -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#H4">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Header"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#H5 -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#H5">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Header"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#H6 -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#H6">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Header"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Header -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Header">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Html -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Html">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#ID -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#ID">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Attribute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#ImageInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#ImageInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Input -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Input">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#InputType -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#InputType">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Attribute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Javascript -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Javascript">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Label -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Label">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Legend -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Legend">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Method -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Method">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Attribute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#NumberInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#NumberInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#OnChange -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#OnChange">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#OnClick -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#OnClick">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#OnKeyDown -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#OnKeyDown">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#OnMouseOut -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#OnMouseOut">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#OnMouseOver -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#OnMouseOver">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Optgroup -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Optgroup">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Option -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Option">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Output -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Output">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Paragraph -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Paragraph">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#PasswordInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#PasswordInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Propertie -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Propertie"/>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#RadioInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#RadioInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#RangeInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#RangeInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#ResetInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#ResetInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#ButtonInput"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Select -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Select">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Selector -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Selector">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Style"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Style -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Style"/>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#SubmitInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#SubmitInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#ButtonInput"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#TextInput -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#TextInput">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Textarea -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Textarea">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Field"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Value -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#Value"/>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#nom -->
+
+    <owl:Class rdf:about="http://localhost:8080/WebBuilderOntology#nom">
+        <rdfs:subClassOf rdf:resource="http://localhost:8080/WebBuilderOntology#Attribute"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Cirrhose_du_fois -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#Cirrhose_du_fois">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Dermatite -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#Dermatite">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Diabète -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#Diabète">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Fracture -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#Fracture">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Hépatite -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#Hépatite">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Infection_urinaire -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#Infection_urinaire">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Luxation -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#Luxation">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Myopathie -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#Myopathie">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Nom_du_patient -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#Nom_du_patient">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#TextInput"/>
+        <className>form-control</className>
+        <label>Nom du patient</label>
+        <name>text-1654871245254-0</name>
+        <required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</required>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Tuberculose -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#Tuberculose">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#Typhoide -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#Typhoide">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#céphalés -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#céphalés">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#diarhée -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#diarhée">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#difficultés_respiratoires -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#difficultés_respiratoires">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#douleurs_articulaires -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#douleurs_articulaires">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#douleurs_musculaires -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#douleurs_musculaires">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#fatigue -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#fatigue">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#fièvre -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#fièvre">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#froid -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#froid">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#grippe -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#grippe">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#lastMedicalCheckup -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#lastMedicalCheckup">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#DateInput"/>
+        <json_format>[{&quot;type&quot;:&quot;text&quot;,&quot;subtype&quot;:&quot;date&quot;,&quot;required&quot;:false,&quot;label&quot;:&quot;Date visite médicale&quot;,&quot;description&quot;:&quot;La dernière date de votre visite médicale par rapport à votre maladie&quot;,&quot;className&quot;:&quot;form-control&quot;,&quot;name&quot;:&quot;text-1654895998366&quot;}]</json_format>
+        <label>Date visite médicale</label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#mal_de_gorge -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#mal_de_gorge">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#maladie_medical_survey -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#maladie_medical_survey">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Select"/>
+        <hasOption rdf:resource="http://localhost:8080/WebBuilderOntology#Cirrhose_du_fois"/>
+        <hasOption rdf:resource="http://localhost:8080/WebBuilderOntology#Hépatite"/>
+        <hasOption rdf:resource="http://localhost:8080/WebBuilderOntology#Infection_urinaire"/>
+        <hasOption rdf:resource="http://localhost:8080/WebBuilderOntology#Tuberculose"/>
+        <hasOption rdf:resource="http://localhost:8080/WebBuilderOntology#Typhoide"/>
+        <hasOption rdf:resource="http://localhost:8080/WebBuilderOntology#paludisme"/>
+        <label>Maladie diagnostiqué</label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#malaria_survey -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#malaria_survey">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <hasButton rdf:resource="http://localhost:8080/WebBuilderOntology#soumettre_malaria_survey"/>
+        <hasParagraph rdf:resource="http://localhost:8080/WebBuilderOntology#malario_intro"/>
+        <hasSelectInput rdf:resource="http://localhost:8080/WebBuilderOntology#symptômes"/>
+        <hasTextInput rdf:resource="http://localhost:8080/WebBuilderOntology#patientName"/>
+        <formDesc>Formulaire de collection d&apos;informations sur les symptomes de la malaria</formDesc>
+        <formTitle>Formulaire sur la malaria</formTitle>
+        <json_format>[{&quot;type&quot;:&quot;paragraph&quot;,&quot;subtype&quot;:&quot;p&quot;,&quot;label&quot;:&quot;Nous voulons recenser les symptômes présentez par des patients diagnostiqué de malaria&quot;},{&quot;type&quot;:&quot;text&quot;,&quot;required&quot;:true,&quot;label&quot;:&quot;Entrez votre nom&quot;,&quot;className&quot;:&quot;form-control&quot;,&quot;name&quot;:&quot;text-1655149160133-0&quot;,&quot;subtype&quot;:&quot;text&quot;},{&quot;type&quot;:&quot;select&quot;,&quot;required&quot;:false,&quot;label&quot;:&quot;Sélectionnez vos symptomes&quot;,&quot;className&quot;:&quot;form-control&quot;,&quot;name&quot;:&quot;select-1655149176816-0&quot;,&quot;multiple&quot;:true,&quot;values&quot;:[{&quot;label&quot;:&quot;Fièvres&quot;,&quot;value&quot;:&quot;Fièvres&quot;,&quot;selected&quot;:true},{&quot;label&quot;:&quot;Céphalés&quot;,&quot;value&quot;:&quot;Céphalés&quot;,&quot;selected&quot;:false},{&quot;label&quot;:&quot;Diarhée&quot;,&quot;value&quot;:&quot;Diarhée&quot;,&quot;selected&quot;:false},{&quot;label&quot;:&quot;Douleurs articulaires&quot;,&quot;value&quot;:&quot;Douleurs articulaires&quot;,&quot;selected&quot;:false}]},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Soumettre&quot;,&quot;subtype&quot;:&quot;button&quot;,&quot;className&quot;:&quot;btn-success btn&quot;,&quot;name&quot;:&quot;button-1655149282961-0&quot;,&quot;style&quot;:&quot;success&quot;}]</json_format>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#malario_intro -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#malario_intro">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Paragraph"/>
+        <json_format>[{&quot;type&quot;:&quot;paragraph&quot;,&quot;subtype&quot;:&quot;p&quot;,&quot;label&quot;:&quot;Nous voulons recenser les symptômes présentez par des patients diagnostiqué de malaria&quot;}]</json_format>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#medical_survey -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#medical_survey">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Form"/>
+        <hasButton rdf:resource="http://localhost:8080/WebBuilderOntology#reset_medical_survey"/>
+        <hasButton rdf:resource="http://localhost:8080/WebBuilderOntology#valider_medical_survey"/>
+        <hasDateInput rdf:resource="http://localhost:8080/WebBuilderOntology#lastMedicalCheckup"/>
+        <hasDateInput rdf:resource="http://localhost:8080/WebBuilderOntology#patientBirthday"/>
+        <hasRadioInput rdf:resource="http://localhost:8080/WebBuilderOntology#sexe"/>
+        <hasSelectInput rdf:resource="http://localhost:8080/WebBuilderOntology#maladie_medical_survey"/>
+        <hasTextInput rdf:resource="http://localhost:8080/WebBuilderOntology#Nom_du_patient"/>
+        <action>save_patient.js</action>
+        <formDesc>Les efforts déployés par la communauté des soins de santé pour améliorer les conditions de vie dans le monde entier donnent lieu à un corpus énorme et diversifié de recherches médicales. Lorsque vous essayez de comprendre les résultats des patients, de collecter des statistiques sur la santé ou de recueillir des données auprès des membres de la communauté médicale, les enquêtes en ligne sont souvent le meilleur moyen de mener vos recherches.
+Ce formulaire de santé vise à la collecte des données propre aux patients qui fréquente l&apos;hopital de la Caisse d&apos;Essos.</formDesc>
+        <formTitle>Healthcare survey templates</formTitle>
+        <json_format>[{&quot;type&quot;:&quot;text&quot;,&quot;required&quot;:false,&quot;label&quot;:&quot;Nom du patient &quot;,&quot;className&quot;:&quot;form-control&quot;,&quot;name&quot;:&quot;text-1654871245254-0&quot;,&quot;subtype&quot;:&quot;text&quot;},{&quot;type&quot;:&quot;text&quot;,&quot;subtype&quot;:&quot;date&quot;,&quot;required&quot;:false,&quot;label&quot;:&quot;Date de naissance&quot;,&quot;className&quot;:&quot;form-control&quot;,&quot;name&quot;:&quot;text-1654871259105-0&quot;},{&quot;type&quot;:&quot;radio-group&quot;,&quot;required&quot;:false,&quot;label&quot;:&quot;Sexe&quot;,&quot;inline&quot;:false,&quot;name&quot;:&quot;radio-group-1654871316674-0&quot;,&quot;other&quot;:false,&quot;values&quot;:[{&quot;label&quot;:&quot;Homme&quot;,&quot;value&quot;:&quot;Homme&quot;,&quot;selected&quot;:true},{&quot;label&quot;:&quot;Femme&quot;,&quot;value&quot;:&quot;Homme&quot;,&quot;selected&quot;:false}]},{&quot;type&quot;:&quot;select&quot;,&quot;required&quot;:true,&quot;label&quot;:&quot;Maladie diagnostiqué&quot;,&quot;description&quot;:&quot;la maladie qui vous a été diagnostiqué après votre visite médicale&quot;,&quot;placeholder&quot;:&quot;sélectionner la maladie&quot;,&quot;className&quot;:&quot;form-control&quot;,&quot;name&quot;:&quot;select-1654871348625-0&quot;,&quot;multiple&quot;:false,&quot;values&quot;:[{&quot;label&quot;:&quot;Paludisme&quot;,&quot;value&quot;:&quot;Paludisme&quot;,&quot;selected&quot;:true},{&quot;label&quot;:&quot;Typhoide&quot;,&quot;value&quot;:&quot;Typhoide&quot;,&quot;selected&quot;:false},{&quot;label&quot;:&quot;Infection urinaire&quot;,&quot;value&quot;:&quot;Infection urinaire&quot;,&quot;selected&quot;:false},{&quot;label&quot;:&quot;Cirrhose du fois&quot;,&quot;value&quot;:&quot;Cirrhose du fois&quot;,&quot;selected&quot;:false},{&quot;label&quot;:&quot;Tuberculose &quot;,&quot;value&quot;:&quot;Tuberculose &quot;,&quot;selected&quot;:false},{&quot;label&quot;:&quot;Hépatite &quot;,&quot;value&quot;:&quot;Hépatite &quot;,&quot;selected&quot;:false}]},{&quot;type&quot;:&quot;text&quot;,&quot;subtype&quot;:&quot;date&quot;,&quot;required&quot;:true,&quot;label&quot;:&quot;Date visite médicale&quot;,&quot;description&quot;:&quot;La dernière date de votre visite médicale par rapport à votre maladie&quot;,&quot;className&quot;:&quot;form-control&quot;,&quot;name&quot;:&quot;text-1654895998366&quot;},{&quot;type&quot;:&quot;button&quot;,&quot;subtype&quot;:&quot;submit&quot;,&quot;label&quot;:&quot;Valider&quot;,&quot;className&quot;:&quot;btn-success btn&quot;,&quot;name&quot;:&quot;button-1654871386993-0&quot;,&quot;value&quot;:&quot;Valider&quot;,&quot;style&quot;:&quot;success&quot;},{&quot;type&quot;:&quot;button&quot;,&quot;subtype&quot;:&quot;reset&quot;,&quot;label&quot;:&quot;Annuler&quot;,&quot;className&quot;:&quot;btn-danger btn&quot;,&quot;name&quot;:&quot;button-1654871404272-0&quot;,&quot;value&quot;:&quot;Annuler&quot;,&quot;style&quot;:&quot;danger&quot;}]</json_format>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#paludisme -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#paludisme">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#pathologies -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#pathologies">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Select"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#patientAdress -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#patientAdress">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#EmailInput"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#patientBirthday -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#patientBirthday">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#DateInput"/>
+        <label>Date de naissance</label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#patientName -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#patientName">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#TextInput"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#patientPhoto -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#patientPhoto">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#ImageInput"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#problèmes_digestifs -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#problèmes_digestifs">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#reset_medical_survey -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#reset_medical_survey">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#ButtonInput"/>
+        <className>btn-danger btn</className>
+        <label>Annuler</label>
+        <name>button-1654871404272-0</name>
+        <subtype>reset</subtype>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#rhume -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#rhume">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#sexe -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#sexe">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#RadioInput"/>
+        <json_format>[{&quot;label&quot;:&quot;Homme&quot;,&quot;value&quot;:&quot;Homme&quot;,&quot;selected&quot;:true},{&quot;label&quot;:&quot;Femme&quot;,&quot;value&quot;:&quot;Homme&quot;,&quot;selected&quot;:false}]</json_format>
+        <label>Sexe</label>
+        <name>radio-group-1654871316674-0</name>
+        <required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</required>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#soumettre_malaria_survey -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#soumettre_malaria_survey">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#ButtonInput"/>
+        <subtype>submit</subtype>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#symptômes -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#symptômes">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Select"/>
+        <hasOption rdf:resource="http://localhost:8080/WebBuilderOntology#céphalés"/>
+        <hasOption rdf:resource="http://localhost:8080/WebBuilderOntology#diarhée"/>
+        <hasOption rdf:resource="http://localhost:8080/WebBuilderOntology#douleurs_articulaires"/>
+        <hasOption rdf:resource="http://localhost:8080/WebBuilderOntology#fièvre"/>
+        <json_format>[{&quot;type&quot;:&quot;select&quot;,&quot;required&quot;:false,&quot;label&quot;:&quot;Sélectionnez vos symptomes&quot;,&quot;className&quot;:&quot;form-control&quot;,&quot;name&quot;:&quot;select-1655149176816-0&quot;,&quot;multiple&quot;:true,&quot;values&quot;:[{&quot;label&quot;:&quot;Fièvres&quot;,&quot;value&quot;:&quot;Fièvres&quot;,&quot;selected&quot;:true},{&quot;label&quot;:&quot;Céphalés&quot;,&quot;value&quot;:&quot;Céphalés&quot;,&quot;selected&quot;:false},{&quot;label&quot;:&quot;Diarhée&quot;,&quot;value&quot;:&quot;Diarhée&quot;,&quot;selected&quot;:false},{&quot;label&quot;:&quot;Douleurs articulaires&quot;,&quot;value&quot;:&quot;Douleurs articulaires&quot;,&quot;selected&quot;:false}]}]</json_format>
+        <label>symptomes malaria</label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#troubles_de_la_vue -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#troubles_de_la_vue">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#valider_medical_survey -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#valider_medical_survey">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#ButtonInput"/>
+        <label>Valider</label>
+        <name>button-1654871386993-0</name>
+        <subtype>btn-success btn</subtype>
+        <subtype>submit</subtype>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#vertige -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#vertige">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#vomissements -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#vomissements">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#éruptions_cutanées -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#éruptions_cutanées">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost:8080/WebBuilderOntology#une_perte_d&apos;appétit -->
+
+    <owl:NamedIndividual rdf:about="http://localhost:8080/WebBuilderOntology#une_perte_d&apos;appétit">
+        <rdf:type rdf:resource="http://localhost:8080/WebBuilderOntology#Option"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#ButtonInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#CheckboxInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#ColorInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#DateInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#EmailInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#FileInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#ImageInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#NumberInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#PasswordInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#RadioInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#RangeInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#ResetInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#SubmitInput"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#TextInput"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#Datalist"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#Fieldset"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#Input"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#Label"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#Legend"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#Optgroup"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#Option"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#Output"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#Select"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#Textarea"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#H1"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#H2"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#H3"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#H4"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#H5"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#H6"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#OnChange"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#OnClick"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#OnKeyDown"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#OnMouseOut"/>
+            <rdf:Description rdf:about="http://localhost:8080/WebBuilderOntology#OnMouseOver"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
